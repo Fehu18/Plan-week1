@@ -1,12 +1,12 @@
 resource "azurerm_virtual_network" "vnet" {
-  name                = "${var.env}-vnet"
+  name                = "vnet-${var.env}-${var.location}-001"
   address_space       = [var.address_space]
   location            = var.location
   resource_group_name = var.resource_group_name
 }
 
 resource "azurerm_subnet" "appgateway" {
-  name                 = "${var.env}-appgateway-subnet"
+  name                 = "snet-agw-${var.env}-${var.location}-001"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = [var.subnets.appgateway]
@@ -15,14 +15,14 @@ resource "azurerm_subnet" "appgateway" {
 }
 
 resource "azurerm_subnet" "database" {
-  name                 = "${var.env}-database-subnet"
+  name                 = "snet-db-${var.env}-${var.location}-001"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = [var.subnets.database]
 }
 
 resource "azurerm_subnet" "monitoring" {
-  name                 = "${var.env}-monitoring-subnet"
+  name                 = "snet-monitoring-${var.env}-${var.location}-001"
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = [var.subnets.monitoring]

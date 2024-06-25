@@ -1,18 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
-variable "env" {
-  description = "The environment for deployment (e.g., dev, test, prod)"
-  type        = string
-}
-
-variable "location" {
-  description = "The Azure location for all resources"
-  type        = string
-  default     = "West Europe"
-}
-
 # Resource Group
 module "resource_group" {
   source   = "./modules/resource_group"

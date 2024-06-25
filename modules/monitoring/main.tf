@@ -1,5 +1,5 @@
 resource "azurerm_log_analytics_workspace" "log_analytics" {
-  name                = "${var.env}-law"
+  name                = "law-${var.env}-${var.location}-001"
   location            = var.location
   resource_group_name = var.resource_group_name
   sku                 = "PerGB2018"
@@ -7,7 +7,7 @@ resource "azurerm_log_analytics_workspace" "log_analytics" {
 }
 
 resource "azurerm_application_insights" "app_insights" {
-  name                = "${var.env}-appinsights"
+  name                = "appinsights-${var.env}-${var.location}-001"
   location            = var.location
   resource_group_name = var.resource_group_name
   application_type    = "web"
@@ -15,7 +15,7 @@ resource "azurerm_application_insights" "app_insights" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "diagnostic_setting" {
-  name                       = "${var.env}-diag"
+  name                       = "diag-${var.env}-${var.location}-001"
   target_resource_id         = azurerm_application_insights.app_insights.id
   log_analytics_workspace_id = azurerm_log_analytics_workspace.log_analytics.id
 

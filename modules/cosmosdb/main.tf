@@ -1,5 +1,5 @@
 resource "azurerm_cosmosdb_account" "cosmosdb" {
-  name                = "${var.env}-cosmosdb"
+  name                = "cosmosdb-${var.env}-${var.location}-001"
   location            = var.location
   resource_group_name = var.resource_group_name
   offer_type          = "Standard"

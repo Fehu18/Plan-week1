@@ -1,2 +1,2 @@
 env      = "dev"
-location = "East US"
+location = "westus"

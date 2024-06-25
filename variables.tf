@@ -6,5 +6,4 @@ variable "env" {
 variable "location" {
   description = "The Azure location for all resources"
   type        = string
-  default     = "West Europe"
 }

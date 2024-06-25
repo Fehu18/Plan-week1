@@ -4,11 +4,16 @@ variable "env" {
 }
 
 variable "location" {
-  description = "The Azure location for the AD B2C"
+  description = "The Azure location for the application gateway"
   type        = string
 }
 
 variable "resource_group_name" {
   description = "The name of the resource group"
+  type        = string
+}
+
+variable "subnet_id" {
+  description = "The subnet ID for the application gateway"
   type        = string
 }
